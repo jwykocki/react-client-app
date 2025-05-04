@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, {
+    createContext,
+    useContext,
+    useState,
+    useMemo,
+    ReactNode,
+} from 'react';
 
 interface CartItem {
     productId: number;
@@ -13,15 +19,15 @@ interface CartContextType {
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+
+interface CartProviderProps {
+    children: ReactNode;
+}
+
+export const CartProvider = ({ children }: CartProviderProps) => {
     const [cart, setCart] = useState<CartItem[]>([]);
 
-    const sessionId = (() => {
-        const existing = localStorage.getItem('sessionId');
-        const newId = existing || Math.random().toString(36).substring(2);
-        if (!existing) localStorage.setItem('sessionId', newId);
-        return newId;
-    })();
+    const sessionId = 'temporary-session-id';
 
     const addToCart = (item: CartItem) => {
         setCart(prevCart => {
@@ -41,7 +47,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Session-Id': sessionId, // ✅ now uses the same session as Payments.tsx
+                'X-Session-Id': sessionId,
             },
             body: JSON.stringify({
                 productId: item.productId,
@@ -50,13 +56,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         });
     };
 
+    const value = useMemo(() => ({ cart, addToCart }), [cart]);
+
     return (
-        <CartContext.Provider value={{ cart, addToCart }}>
+        <CartContext.Provider value={value}>
             {children}
         </CartContext.Provider>
     );
 };
-
 
 export const useCart = () => {
     const context = useContext(CartContext);

@@ -40,11 +40,13 @@ function Payments() {
             <h2>Payments</h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Order ID:</label>
+                    <label>
                     <input type="text" value={formData.orderId} readOnly />
+                        Order ID:
+                    </label>
                 </div>
                 <div>
-                    <label>Amount:</label>
+                    <label>
                     <input
                         type="number"
                         name="amount"
@@ -52,9 +54,11 @@ function Payments() {
                         onChange={handleChange}
                         step="0.01"
                     />
+                        Amount:
+                    </label>
                 </div>
                 <div>
-                    <label>Card Number:</label>
+                    <label>
                     <input
                         type="text"
                         name="cardNumber"
@@ -62,9 +66,11 @@ function Payments() {
                         onChange={handleChange}
                         placeholder="1234123412341234"
                     />
+                        Card Number:
+                    </label>
                 </div>
                 <div>
-                    <label>Card Holder:</label>
+                    <label>
                     <input
                         type="text"
                         name="cardHolder"
@@ -72,9 +78,11 @@ function Payments() {
                         onChange={handleChange}
                         placeholder="VPL-K"
                     />
+                        Card Holder:
+                    </label>
                 </div>
                 <div>
-                    <label>Expiry Date (MM/YY):</label>
+                    <label>Expiry Date (MM/YY):
                     <input
                         type="text"
                         name="expiryDate"
@@ -82,9 +90,10 @@ function Payments() {
                         onChange={handleChange}
                         placeholder="12/25"
                     />
+                    </label>
                 </div>
                 <div>
-                    <label>CVV:</label>
+                    <label>
                     <input
                         type="text"
                         name="cvv"
@@ -92,6 +101,8 @@ function Payments() {
                         onChange={handleChange}
                         placeholder="123"
                     />
+                        CVV:
+                    </label>
                 </div>
                 <button type="submit">Process Payment</button>
             </form>
