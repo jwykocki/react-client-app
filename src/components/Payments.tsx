@@ -47,61 +47,62 @@ function Payments() {
                 </div>
                 <div>
                     <label>
-                    <input
-                        type="number"
-                        name="amount"
-                        value={formData.amount}
-                        onChange={handleChange}
-                        step="0.01"
-                    />
                         Amount:
+                        <input
+                            type="number"
+                            name="amount"
+                            value={formData.amount}
+                            onChange={handleChange}
+                            step="0.01"
+                        />
                     </label>
                 </div>
                 <div>
                     <label>
-                    <input
-                        type="text"
-                        name="cardNumber"
-                        value={formData.cardNumber}
-                        onChange={handleChange}
-                        placeholder="1234123412341234"
-                    />
                         Card Number:
+                        <input
+                            type="text"
+                            name="cardNumber"
+                            value={formData.cardNumber}
+                            onChange={handleChange}
+                            placeholder="1234123412341234"
+                        />
                     </label>
                 </div>
                 <div>
                     <label>
-                    <input
-                        type="text"
-                        name="cardHolder"
-                        value={formData.cardHolder}
-                        onChange={handleChange}
-                        placeholder="VPL-K"
-                    />
                         Card Holder:
-                    </label>
-                </div>
-                <div>
-                    <label>Expiry Date (MM/YY):
-                    <input
-                        type="text"
-                        name="expiryDate"
-                        value={formData.expiryDate}
-                        onChange={handleChange}
-                        placeholder="12/25"
-                    />
+                        <input
+                            type="text"
+                            name="cardHolder"
+                            value={formData.cardHolder}
+                            onChange={handleChange}
+                            placeholder="VPL-K"
+                        />
                     </label>
                 </div>
                 <div>
                     <label>
-                    <input
-                        type="text"
-                        name="cvv"
-                        value={formData.cvv}
-                        onChange={handleChange}
-                        placeholder="123"
-                    />
+                        Expiry Date (MM/YY):
+                        <input
+                            type="text"
+                            name="expiryDate"
+                            value={formData.expiryDate}
+                            onChange={handleChange}
+                            placeholder="12/25"
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>
                         CVV:
+                        <input
+                            type="text"
+                            name="cvv"
+                            value={formData.cvv}
+                            onChange={handleChange}
+                            placeholder="123"
+                        />
                     </label>
                 </div>
                 <button type="submit">Process Payment</button>
