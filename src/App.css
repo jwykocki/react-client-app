@@ -10,7 +10,8 @@
   text-align: center;
 }
 
-.products-section, .payments-section {
+.products-section,
+.payments-section {
   margin: 20px 0;
   padding: 20px;
   border: 1px solid #ddd;
