@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Payments() {
     const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
@@ -41,8 +41,8 @@ function Payments() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>
-                    <input type="text" value={formData.orderId} readOnly />
                         Order ID:
+                        <input type="text" value={formData.orderId} readOnly />
                     </label>
                 </div>
                 <div>
